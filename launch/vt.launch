@@ -1,0 +1,33 @@
+<launch>
+<!--  <rosparam command="load" file="$(find sma-lab2)/config/rcalib.yaml" />  -->
+  <rosparam command="load" file="$(find sma-lab2)/config/vt.yaml" />
+  <rosparam command="load" file="$(find sma-lab2)/config/wall_eye.yaml" />
+  <node pkg="smabo" type="cropper.py" name="cropper" output="screen">
+    <remap from="~config" to="/config/cropper" />
+    <remap from="~param" to="/cropper" />
+    <remap from="~update" to="/update/cropper" />
+    <remap from="~capture" to="/request/capture" />
+    <remap from="~captured" to="/response/capture" />
+    <remap from="~clear" to="/request/clear" />
+    <remap from="~redraw" to="/request/redraw" />
+    <remap from="~in/pc2" to="/sensors/pc2" />
+    <remap from="~out/pc2" to="/crop/pc2" />
+    <remap from="~out/rawpc2" to="/crop/rawpc2" />
+  </node>
+  <node pkg="smabo" type="searcher.py" name="searcher" args="path:=$(find sma-lab2)/recipe" output="screen">
+    <remap from="~config" to="/config/searcher" />
+    <remap from="~param" to="/searcher" />
+    <remap from="~in/pc2" to="/crop/pc2" />
+    <remap from="~out/pc2" to="/master/pc2" />
+    <remap from="~clear" to="/request/clear" />
+    <remap from="~load" to="/request/model_load" />
+    <remap from="~loaded" to="/response/recipe_load" />
+    <remap from="~save" to="/request/model_save" />
+    <remap from="~saved" to="/response/model_save" />
+    <remap from="~solve" to="/request/solve" />
+    <remap from="~solved" to="/searcher/solved" />
+    <remap from="~redraw" to="/request/redraw" />
+    <remap from="~poses" to="/searcher/poses" />
+    <remap from="~stat" to="/searcher/stat" />
+  </node>
+</launch>

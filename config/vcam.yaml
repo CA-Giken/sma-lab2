@@ -1,0 +1,14 @@
+config:
+  vcam:
+    hidden: true
+    camera_frame_id: "camera"
+    trim_x: 2000
+    trim_y: 2000
+    trim_far: 2000
+    trim_near: 500
+    ply: ['sma-lab2','mesh/ThreeFinger','tool0_controller']
+seacher:
+  streaming: true
+sensors:
+  streaming: true
+  mesh: 2

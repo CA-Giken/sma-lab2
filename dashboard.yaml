@@ -1,0 +1,89 @@
+config:
+  dashboard:
+    recipe:
+      link: sma-lab2/recipe
+      dir: sma-lab2/recipe.d
+    altitude: '+0'
+    message:
+      halt: "を停止します"
+    font:
+      size: 10
+    color:
+      background: "#00AAFF"
+      lit: "#FF7700"
+      unlit: "#888888"
+      mask: "#222222"
+    launch_cam:
+      label: "カメラ"
+      package: sma-lab2
+      file: cam.launch
+#      auto: 1
+    launch_vcam:
+      label: "仮想CAM"
+      package: sma-lab2
+      file: vcam.launch
+#      auto: 1
+    launch_fcam:
+      label: "再現CAM"
+      package: sma-lab2
+      file: fcam.launch
+#      auto: 1
+#    launch_rsock:
+#      label: "ロボット"
+#      package: rovi_industrial
+#      file: ur10.launch
+#      auto: 6
+#      args:
+#        address: "111.222.333.444"
+    launch_vt:
+      label: "VT"
+      package: sma-lab2
+      file: vt.launch
+#      auto: 8
+    launch_setup:
+      label: "セットアップ"
+      package: sma-lab2
+      file: setup.launch
+      pre: ["wmctrl -r rviz -e 0,0,0,1550,875"]
+#     auto: 13
+    launch_viewer:
+      label: "Viewer"
+      package: sma-lab2
+      file: viewer.launch
+#     auto: 10
+    launch_rcalib:
+      label: "キャリブ"
+      package: smabo
+      file: rcalib.launch
+
+    indicator1:
+      label: "CAM"
+      topic: /camera/stat
+      type: std_msgs/Bool
+      timeout: 2
+    indicator2:
+      label: "接続"
+      topic: /rsocket/enable
+      type: std_msgs/Bool
+      timeout: 2
+    indicator3:
+      label: "通信"
+      topic: /rsocket/stat
+      type: std_msgs/Bool
+      timeout: 2
+  panel:
+    color:
+      background: "#00AAFF"
+    lift: false
+    message:
+      save: "現在のレシピに上書きします。"
+      reopen: "レシピが変更されたため保存できません。パネルを一旦閉じるか、ダッシュボードからレシピを開いた後、やり直します。"
+  rsocket:
+    robot_ip: '127.0.0.1'
+    port: 3000
+    update_frame_id: tool0_controller
+
+config_tf:
+  base:
+    parent_frame_id: world
+

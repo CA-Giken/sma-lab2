@@ -1,0 +1,10 @@
+<launch>
+  <rosparam command="load" file="$(find sma-lab2)/config/viewer.yaml" />
+  <node pkg="rtk_tools" type="report.py" name="" output="screen">
+    <remap from="/report/update" to="/request/capture" />
+    <remap from="/report/complete" to="/response/solve" />
+  </node>
+
+  <node pkg="smabo" type="ycam3.py" name="" />
+  <node pkg="rviz" type="rviz" name="" args="-d $(find sma-lab2)/main.rviz" />
+</launch>
