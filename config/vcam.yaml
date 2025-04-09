@@ -7,7 +7,7 @@ config:
     trim_far: 2000
     trim_near: 500
     ply: ['sma-lab2','mesh/ThreeFinger','tool0_controller']
-seacher:
+searcher:
   streaming: true
 sensors:
   streaming: true

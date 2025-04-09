@@ -1,0 +1,25 @@
+config_tf:
+  camera:
+    parent_frame_id: base
+    transform:
+      rotation:
+        w: -0.499948688845487
+        x: 0.8660549772594258
+        y: -0.00015580772078012276
+        z: -0.0002461904515427959
+      translation:
+        x: 0.1286067058055096
+        y: -499.8965777518141
+        z: 500.0101652071172
+cropper:
+  cropR: 0
+  ladC: 10000
+  mesh: 2
+rsocket:
+  base_frame_id: ''
+  source_frame_id: ''
+  target_frame_id: ''
+searcher:
+  icp_fitness: 0.6
+  icp_threshold: 4
+  normal_radius: 10

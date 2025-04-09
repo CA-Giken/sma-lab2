@@ -53,7 +53,7 @@ config:
 #     auto: 10
     launch_rcalib:
       label: "キャリブ"
-      package: smabo
+      package: sma-lab2
       file: rcalib.launch
 
     indicator1:
