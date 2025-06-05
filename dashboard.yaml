@@ -13,28 +13,16 @@ config:
       lit: "#FF7700"
       unlit: "#888888"
       mask: "#222222"
-    launch_cam:
-      label: "カメラ"
-      package: sma-lab2
-      file: cam.launch
-#      auto: 1
-    launch_vcam:
-      label: "仮想CAM"
-      package: sma-lab2
-      file: vcam.launch
+    launch_rb:
+      label: "ロボット"
+      package: sma-link
+      file: motoman_gp25.launch
 #      auto: 1
     launch_fcam:
       label: "再現CAM"
       package: sma-lab2
       file: fcam.launch
 #      auto: 1
-#    launch_rsock:
-#      label: "ロボット"
-#      package: rovi_industrial
-#      file: ur10.launch
-#      auto: 6
-#      args:
-#        address: "111.222.333.444"
     launch_vt:
       label: "VT"
       package: sma-lab2
@@ -79,9 +67,17 @@ config:
       save: "現在のレシピに上書きします。"
       reopen: "レシピが変更されたため保存できません。パネルを一旦閉じるか、ダッシュボードからレシピを開いた後、やり直します。"
   rsocket:
+    protocol: motoman
+    port: 8888
     robot_ip: '127.0.0.1'
-    port: 3000
-    update_frame_id: tool0_controller
+    delay: 100
+    socket_timeout: 13
+    capt_timeout: 10
+    solve_timeout: 10
+    recipe_timeout: 10
+    source_frame_id: camera/master0
+    target_frame_id: camera/track0
+    base_frame_id: base
 
 config_tf:
   base:

@@ -1,7 +1,6 @@
 <launch>
 <!--  <rosparam command="load" file="$(find sma-lab2)/config/rcalib.yaml" />  -->
   <rosparam command="load" file="$(find sma-lab2)/config/vt.yaml" />
-  <rosparam command="load" file="$(find sma-lab2)/config/wall_eye.yaml" />
   <node pkg="smabo" type="cropper.py" name="cropper" output="screen">
     <remap from="~config" to="/config/cropper" />
     <remap from="~param" to="/cropper" />
@@ -25,7 +24,10 @@
     <remap from="~save" to="/request/model_save" />
     <remap from="~saved" to="/response/model_save" />
     <remap from="~solve" to="/request/solve" />
+<!--
     <remap from="~solved" to="/searcher/solved" />
+-->
+    <remap from="~solved" to="/response/solve" />
     <remap from="~redraw" to="/request/redraw" />
     <remap from="~poses" to="/searcher/poses" />
     <remap from="~stat" to="/searcher/stat" />
