@@ -19,6 +19,10 @@ config:
   rsocket:
     base_frame_id: "flange"
 
+sensors:
+  streaming: false
+cropper:
+  streaming: false
 searcher:
   streaming: false
 

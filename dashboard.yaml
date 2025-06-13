@@ -16,7 +16,7 @@ config:
     launch_rb:
       label: "ロボット"
       package: sma-link
-      file: motoman_gp25.launch
+      file: motoman_mh24.launch
 #      auto: 1
     launch_fcam:
       label: "再現CAM"
@@ -68,8 +68,9 @@ config:
       reopen: "レシピが変更されたため保存できません。パネルを一旦閉じるか、ダッシュボードからレシピを開いた後、やり直します。"
   rsocket:
     protocol: motoman
-    port: 8888
-    robot_ip: '127.0.0.1'
+    port: 3333
+    robot_ip: '192.168.255.100'
+    robot_port: 11000
     delay: 100
     socket_timeout: 13
     capt_timeout: 10

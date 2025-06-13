@@ -8,23 +8,23 @@ config_tf:
         z: 0
         w: 1
       translation:
-        x: 0
+        x: -1000
         y: 0
         z: 0
   camera:
     parent_frame_id: base
     transform:
       rotation:
-        x: -0.866
-        y: 0
-        z: 0
-        w: 0.5
+        x: -0.683
+        y: -0.683
+        z: 0.183
+        w: 0.183
       translation:
-        x: 0
-        y: -500
-        z: 500
+        x: 1700
+        y: 0
+        z: 200
   tool0_controller:
-    parent_frame_id: base
+    parent_frame_id: tool0
     transform:
       rotation:
         x: 0
