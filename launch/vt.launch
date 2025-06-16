@@ -1,6 +1,7 @@
 <launch>
 <!--  <rosparam command="load" file="$(find sma-lab2)/config/rcalib.yaml" />  -->
   <rosparam command="load" file="$(find sma-lab2)/config/vt.yaml" />
+  <rosparam command="load" file="$(find sma-lab2)/config/digital_twin.yaml" />
   <node pkg="smabo" type="cropper.py" name="cropper" output="screen">
     <remap from="~config" to="/config/cropper" />
     <remap from="~param" to="/cropper" />

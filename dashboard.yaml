@@ -84,3 +84,7 @@ config_tf:
   base:
     parent_frame_id: world
 
+sensors:
+  serial: "218425"
+
+
