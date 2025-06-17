@@ -1,6 +1,7 @@
 <launch>
-  <rosparam command="load" file="$(find smabo)/config/rcalib.yaml" />
   <rosparam command="load" file="$(find sma-lab2)/rcalib/param.yaml" />
+  <param name="/sensors/streaming" type="int" value="1" />
+  <param name="/searcher/streaming" type="int" value="1" />
 <!--nodes for robot calib-->
   <node pkg="smabo" type="rcalib.py" name="" output="screen">
     <remap from="~config" to="/config/rcalib" />
@@ -20,5 +21,4 @@
     dump:=$(find sma-lab2)/rcalib/param.yaml
     geom:=360x800+1600+20">
   </node>
--->
 </launch>

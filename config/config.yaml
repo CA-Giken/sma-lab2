@@ -1,0 +1,18 @@
+config:
+  rsocket:
+    protocol: motoman
+    port: 3333
+    robot_ip: "192.168.255.100"
+    robot_port: 11000
+  rcalib:
+    on_hand: False
+    board_frame_id: "camera/track0"
+    camera_frame_id: "camera"
+    flange_frame_id: "tool0_controller"
+    mount_frame_id: "base"
+
+sensors:
+  ensenso_camera_node:
+    serial: "218425"  # ""は必須
+    settings: "/root/catkin_ws/src/sma-lab2/ensenso/setting/218425.ensparam"
+

@@ -14,49 +14,47 @@ config:
       unlit: "#888888"
       mask: "#222222"
     launch_rb:
-      label: "ロボット"
+      label: "RB"
       package: sma-link
       file: motoman_mh24.launch
-#      auto: 1
-    launch_fcam:
-      label: "再現CAM"
-      package: sma-lab2
-      file: fcam.launch
-#      auto: 1
+      auto: 1
+    launch_cam:
+      label: "CAM"
+      package: sma-wrapper
+      file: s10.launch
+      auto: 2
     launch_vt:
       label: "VT"
       package: sma-lab2
       file: vt.launch
-#      auto: 8
+      auto: 5
+    launch_viewer:
+      label: "Viewer"
+      package: sma-lab2
+      file: viewer.launch
+      auto: 10
     launch_setup:
       label: "セットアップ"
       package: sma-lab2
       file: setup.launch
       pre: ["wmctrl -r rviz -e 0,0,0,1550,875"]
-#     auto: 13
-    launch_viewer:
-      label: "Viewer"
-      package: sma-lab2
-      file: viewer.launch
-#     auto: 10
     launch_rcalib:
       label: "キャリブ"
       package: sma-lab2
       file: rcalib.launch
+    launch_fcam:
+      label: "再現CAM"
+      package: sma-lab2
+      file: fcam.launch
 
     indicator1:
-      label: "CAM"
-      topic: /camera/stat
+      label: "CAM接続"
+      topic: /sensors/stat
       type: std_msgs/Bool
       timeout: 2
     indicator2:
-      label: "接続"
+      label: "RB接続"
       topic: /rsocket/enable
-      type: std_msgs/Bool
-      timeout: 2
-    indicator3:
-      label: "通信"
-      topic: /rsocket/stat
       type: std_msgs/Bool
       timeout: 2
   panel:
@@ -67,15 +65,16 @@ config:
       save: "現在のレシピに上書きします。"
       reopen: "レシピが変更されたため保存できません。パネルを一旦閉じるか、ダッシュボードからレシピを開いた後、やり直します。"
   rsocket:
-    protocol: motoman
-    port: 3333
-    robot_ip: '192.168.255.100'
-    robot_port: 11000
+    protocol: ""
+    port: 1111
+    robot_ip: "127.0.0.1"
+    robot_port: 1112
     delay: 100
     socket_timeout: 13
     capt_timeout: 10
     solve_timeout: 10
     recipe_timeout: 10
+    base_frame_id: base
     source_frame_id: camera/master0
     target_frame_id: camera/track0
     base_frame_id: base
@@ -83,8 +82,4 @@ config:
 config_tf:
   base:
     parent_frame_id: world
-
-sensors:
-  serial: "218425"
-
 

@@ -16,12 +16,8 @@ config:
     frame_id: "camera/capture0"
     relay: "/sensors/X1"
     ansback: "/sensors/Y1"
-  rsocket:
-    base_frame_id: "flange"
 
 sensors:
-  streaming: false
-cropper:
   streaming: false
 searcher:
   streaming: false
