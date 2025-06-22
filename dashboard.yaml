@@ -20,8 +20,8 @@ config:
       auto: 1
     launch_cam:
       label: "CAM"
-      package: sma-wrapper
-      file: s10.launch
+      package: sma-lab2
+      file: camera.launch
       auto: 2
     launch_vt:
       label: "VT"

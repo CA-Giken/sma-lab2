@@ -6,7 +6,7 @@ config:
     trim_y: 2000
     trim_far: 2000
     trim_near: 500
-    ply: ['sma-lab2','mesh/test{:02d}','camera']
+    ply: ['/root/src/test{:02d}','camera']
 vcam:
   frame: 0
 seacher:

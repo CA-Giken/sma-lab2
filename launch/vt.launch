@@ -1,5 +1,5 @@
 <launch>
-<!--  <rosparam command="load" file="$(find sma-lab2)/config/rcalib.yaml" />  -->
+  <rosparam command="load" file="$(find sma-lab2)/rcalib/param.yaml" />
   <param name="/sensors/streaming" type="int" value="0" />
   <param name="/searcher/streaming" type="int" value="0" />
   <rosparam command="load" file="$(find sma-lab2)/config/vt.yaml" />

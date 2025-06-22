@@ -1,0 +1,6 @@
+<launch>
+  <rosparam command="load" file="$(find sma-lab2)/rcalib/param.yaml" />
+  <include file="$(find sma-wrapper)/ensenso/s10.launch">
+    <arg name="serial" value="218511" />
+  </include>
+</launch>

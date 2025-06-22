@@ -6,10 +6,10 @@ config:
     robot_port: 11000
   rcalib:
     on_hand: False
+    base_frame_id: "base"
     board_frame_id: "camera/track0"
     camera_frame_id: "camera"
     flange_frame_id: "tool0_controller"
-    mount_frame_id: "base"
 
 sensors:
   ensenso_camera_node:
