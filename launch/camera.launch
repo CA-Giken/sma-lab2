@@ -1,6 +1,9 @@
 <launch>
+  <param name="/sensors/streaming" type="int" value="0" />
+  <param name="/searcher/streaming" type="int" value="0" />
   <rosparam command="load" file="$(find sma-lab2)/rcalib/param.yaml" />
   <include file="$(find sma-wrapper)/ensenso/s10.launch">
-    <arg name="serial" value="218511" />
+    <arg name="serial" value="220607" />
+    <arg name="settings" value="$(find sma-lab2)/setting/220607.ensparam" />
   </include>
 </launch>

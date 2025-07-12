@@ -3,7 +3,9 @@
   <param name="/sensors/streaming" type="int" value="0" />
   <param name="/searcher/streaming" type="int" value="0" />
   <rosparam command="load" file="$(find sma-lab2)/config/vt.yaml" />
-  <rosparam command="load" file="$(find sma-lab2)/config/digital_twin.yaml" />
+
+  <node pkg="rostopic" name="redraw" type="rostopic" args="pub -1 /request/redraw std_msgs/Bool True" />
+
   <node pkg="smabo" type="cropper.py" name="cropper" output="screen">
     <remap from="~config" to="/config/cropper" />
     <remap from="~param" to="/cropper" />
@@ -16,6 +18,7 @@
     <remap from="~out/pc2" to="/crop/pc2" />
     <remap from="~out/rawpc2" to="/crop/rawpc2" />
   </node>
+
   <node pkg="smabo" type="searcher.py" name="searcher" args="path:=$(find sma-lab2)/recipe" output="screen">
     <remap from="~config" to="/config/searcher" />
     <remap from="~param" to="/searcher" />

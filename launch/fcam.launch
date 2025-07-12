@@ -1,5 +1,4 @@
 <launch>
   <rosparam command="load" file="$(find sma-lab2)/config/fcam.yaml" />
-  <rosparam command="load" file="$(find sma-lab2)/config/digital_twin.yaml" />
   <node pkg="smabo" type="vcam.py" name="" output="screen" />
 </launch>
