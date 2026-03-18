@@ -16,12 +16,16 @@ config:
     launch_rb:
       label: "RB"
       package: sma-link
-      file: motoman_mh24.launch
-      auto: 1
+#      file: motoman_mh24.launch
+      file: motoman_gp50.launch
+#      auto: 1
     launch_cam:
       label: "CAM"
       package: sma-lab2
       file: camera.launch
+      args:
+        serial: "511179"
+#      file: fcam.launch
       auto: 2
     launch_vt:
       label: "VT"
@@ -38,6 +42,8 @@ config:
       package: sma-lab2
       file: setup.launch
       pre: ["wmctrl -r rviz -e 0,0,0,1550,875"]
+      post: ["echo y | rosnode cleanup"]
+      auto: 13
     launch_rcalib:
       label: "キャリブ"
       package: sma-lab2
@@ -78,8 +84,4 @@ config:
     source_frame_id: camera/master0
     target_frame_id: camera/track0
     base_frame_id: base
-
-config_tf:
-  base:
-    parent_frame_id: world
 

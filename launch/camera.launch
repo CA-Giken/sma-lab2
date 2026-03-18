@@ -3,7 +3,9 @@
   <param name="/searcher/streaming" type="int" value="0" />
   <rosparam command="load" file="$(find sma-lab2)/rcalib/param.yaml" />
   <include file="$(find sma-wrapper)/ensenso/s10.launch">
-    <arg name="serial" value="220607" />
-    <arg name="settings" value="$(find sma-lab2)/setting/220607.ensparam" />
+    <arg name="serial" value="$(arg serial)" />
+    <arg name="settings" value="$(find sma-lab2)/setting/$(arg serial).ensparam" />
+    <param name="/sensors/ensenso_camera_node/serial" type="str" value="$(serial)" />
+    <param name="/sensors/ensenso_camera_node/settings" type="str" value="/root/catkin_ws/src/sma-lab2/setting/$(arg serial).ensparam" />
   </include>
 </launch>

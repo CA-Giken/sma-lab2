@@ -1,18 +1,23 @@
 config:
+  dashboard:
+    launch_cam:
+      args:
+        serial: "220607"  # ""は必須
+
   rsocket:
     protocol: motoman
     port: 3333
-    robot_ip: "192.168.255.100"
+    robot_ip: "192.168.255.1"
     robot_port: 11000
   rcalib:
     on_hand: False
-    base_frame_id: "base"
+    base_frame_id: "world"
     board_frame_id: "camera/track0"
     camera_frame_id: "camera"
     flange_frame_id: "tool0_controller"
-
-sensors:
-  ensenso_camera_node:
-    serial: "218425"  # ""は必須
-    settings: "/root/catkin_ws/src/sma-lab2/ensenso/setting/218425.ensparam"
+  plc:
+    plc_ip: "192.168.3.39"
+    plc_port: 5376
+    inregs: D4000
+    outregs: D4004
 

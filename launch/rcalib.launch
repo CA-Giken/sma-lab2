@@ -1,7 +1,7 @@
 <launch>
   <rosparam command="load" file="$(find sma-lab2)/rcalib/param.yaml" />
-  <param name="/sensors/streaming" type="int" value="1" />
-  <param name="/searcher/streaming" type="int" value="1" />
+  <param name="/sensors/streaming" type="int" value="0" />
+  <param name="/searcher/streaming" type="int" value="0" />
 <!--nodes for robot calib-->
   <node pkg="smabo" type="rcalib.py" name="" output="screen">
     <remap from="~config" to="/config/rcalib" />
@@ -17,8 +17,9 @@
   </node>
 <!--User Input Panel -->
   <node pkg="rtk_tools" type="panel.py" name="" args="
-    conf:=$(find smabo)/rcalib.zui
+    conf:=$(find sma-lab2)/rcalib/setup.zui
     dump:=$(find sma-lab2)/rcalib/param.yaml
     geom:=360x800+1600+20">
   </node>
+  <node ns="sensors" pkg="ensenso_camera" type="pattern_marker" name="" output="screen" />
 </launch>

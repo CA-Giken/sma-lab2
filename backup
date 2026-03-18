@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd ~/catkin_src2/sma-lab2
+bakfile=backup`date +%y%m%d`.zip
+zip -r $bakfile recipe.d
+for mem in /media/ros/*
+do
+  echo MEM=$mem
+  if [[ "$mem" != *"efi" ]]
+  then
+    echo Recipe backup to $mem"/"$bakfile
+    mv *.zip $mem
+  fi
+done

@@ -38,4 +38,7 @@
     <remap from="~poses" to="/searcher/poses" />
     <remap from="~stat" to="/searcher/stat" />
   </node>
+
+  <node pkg="sma-link" type="mcplink.py" name="">
+  </node>
 </launch>

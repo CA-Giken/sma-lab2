@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /home/ros/docker-noetic-devs/ensenso
+docker compose up -d && docker compose exec std bash -ic "roslaunch sma-lab2 start.launch"
+
+
